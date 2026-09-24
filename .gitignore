@@ -1,0 +1,29 @@
+# Arquivos de log criados por ferramentas e gerenciadores de pacotes.
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependências instaladas localmente e arquivos gerados pelo build.
+node_modules
+dist
+dist-ssr
+*.local
+
+# Configurações e pastas específicas de editores ou sistemas operacionais.
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vercel
+.env*

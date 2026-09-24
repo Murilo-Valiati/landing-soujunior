@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:wght@300..800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #facc15;
+  --color-dark: #0f0f0f;
+  --color-light: #ffffff;
+  --color-cyan: #22d3ee;
+  --color-roxo: #6366f1;
+}
+
+:root {
+  font-family: 'Funnel Sans', ui-sans-serif, system-ui, sans-serif;
+  color: #0f0f0f;
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Titulos usam Funnel Display, conforme o UI Kit oficial da SouJunior. */
+h1, h2, h3, h4, .font-display {
+  font-family: 'Funnel Display', 'Funnel Sans', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Impede que o cabecalho fixo cubra o titulo da secao ao clicar no menu. */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+a {
+  text-decoration: none;
+}
+
+@utility section-shell {
+  padding-inline: 1.5rem;
+  max-width: 80rem;
+  margin-inline: auto;
+  @media (min-width: 768px) {
+    padding-inline: 3rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 5rem;
+  }
+}
+
+/* Utilitários de Efeito Visual (Mockup Novo) */
+@utility radial-glow-blue {
+  /* background-image sobrepoe o brilho sem apagar a cor de fundo da secao. */
+  background-image: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+}
+
+@utility radial-glow-yellow {
+  background-image: radial-gradient(circle at center left, rgba(250, 204, 21, 0.15) 0%, transparent 60%);
+}
+
+/* Garante que imagens nunca passem do tamanho da tela */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Botoes usam Plus Jakarta Sans, conforme o Figma. */
+a[class*="rounded-full"],
+button[class*="rounded-full"] {
+  font-family: 'Plus Jakarta Sans', 'Funnel Sans', ui-sans-serif, system-ui, sans-serif;
+}
