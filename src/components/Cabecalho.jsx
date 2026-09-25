@@ -32,9 +32,20 @@ export default function Cabecalho() {
           ))}
         </nav>
 
-        <div className="flex items-center justify-center font-black text-xl tracking-tight text-primary">
-          <span className="text-2xl mr-1">❖</span> SouJunior
-        </div>
+        {/* Logomarca oficial, nas medidas do Figma: simbolo 30x30, 8px de espaco e logotipo 153,59x24,4 */}
+        <a href="#inicio" className="flex flex-shrink-0 items-center gap-2" aria-label="SouJunior — ir para o topo">
+          <img
+            src="/logo-simbolo.svg"
+            alt=""
+            aria-hidden="true"
+            className="h-[30px] w-[30px] flex-shrink-0"
+          />
+          <img
+            src="/logo-soujunior.svg"
+            alt="SouJunior"
+            className="h-[24.4px] w-[153.592px] max-w-none flex-shrink-0"
+          />
+        </a>
 
         <div className="hidden md:flex">
           <a
