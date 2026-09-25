@@ -28,7 +28,7 @@ export default function Transparencia() {
           <p className="text-sm font-bold uppercase tracking-wide text-secondary">
             Infraestrutura em 2026
           </p>
-          <p className="mt-3 text-5xl font-black leading-none md:text-6xl">R$ 1.849,59</p>
+          <p className="mt-3 text-3xl font-black leading-none sm:text-4xl md:text-6xl">R$ 1.849,59</p>
 
           <ul className="mt-8 flex flex-wrap gap-3">
             {servicos.map((servico) => (

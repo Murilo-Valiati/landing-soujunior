@@ -17,47 +17,47 @@ export default function BarraImpacto() {
   const proximo = () => setIndice((i) => (i === numeros.length - 1 ? 0 : i + 1));
 
   return (
-    <div id="impacto" className="bg-secondary py-5 md:py-8 border-y border-dark/10 overflow-hidden px-4">
-      <div className="section-shell">
-        {/* Celular: carrossel com um número por vez. Setas na borda e altura
-            fixa no texto, para não pular quando a frase quebra em duas linhas. */}
-        <div className="flex items-center justify-between gap-3 md:hidden">
-          <button
-            type="button"
-            onClick={anterior}
-            aria-label="Ver número anterior"
-            className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
-          >
-            <svg width="7" height="12" viewBox="0 0 8 14" fill="none">
-              <path d="M7 1L1 7L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+    <div id="impacto" className="bg-secondary py-5 md:py-8 border-y border-dark/10 overflow-hidden">
+      {/* Celular: carrossel com um número por vez. Padding lateral reduzido
+          (px-2) para as setas ficarem mais próximas da borda da tela. Número
+          e frase ficam empilhados, sem gap horizontal entre eles, e a altura
+          é fixa para não pular quando a frase quebra em duas linhas. */}
+      <div className="flex items-center justify-between gap-2 px-2 md:hidden">
+        <button
+          type="button"
+          onClick={anterior}
+          aria-label="Ver número anterior"
+          className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
+        >
+          <svg width="7" height="12" viewBox="0 0 8 14" fill="none">
+            <path d="M7 1L1 7L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
 
-          <div className="flex min-h-[40px] min-w-0 flex-1 items-center justify-center gap-2 text-center text-sm font-bold">
-            <span className="text-2xl">{numeros[indice].valor}</span>
-            <span>{numeros[indice].texto}</span>
+        <div className="flex min-h-[52px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 text-center text-sm font-bold">
+          <span className="text-2xl leading-none">{numeros[indice].valor}</span>
+          <span>{numeros[indice].texto}</span>
+        </div>
+
+        <button
+          type="button"
+          onClick={proximo}
+          aria-label="Ver próximo número"
+          className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
+        >
+          <svg width="7" height="12" viewBox="0 0 8 14" fill="none">
+            <path d="M1 1L7 7L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      {/* A partir de md: todos os números lado a lado, como no design */}
+      <div className="section-shell hidden md:flex flex-row flex-wrap justify-between items-center gap-6 lg:gap-8 text-sm font-bold text-left">
+        {numeros.map((item) => (
+          <div key={item.texto} className="flex items-center gap-2">
+            <span className="text-xl">{item.valor}</span> {item.texto}
           </div>
-
-          <button
-            type="button"
-            onClick={proximo}
-            aria-label="Ver próximo número"
-            className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
-          >
-            <svg width="7" height="12" viewBox="0 0 8 14" fill="none">
-              <path d="M1 1L7 7L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
-
-        {/* A partir de md: todos os números lado a lado, como no design */}
-        <div className="hidden md:flex flex-row flex-wrap justify-between items-center gap-6 lg:gap-8 text-sm font-bold text-left">
-          {numeros.map((item) => (
-            <div key={item.texto} className="flex items-center gap-2">
-              <span className="text-xl">{item.valor}</span> {item.texto}
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   );
