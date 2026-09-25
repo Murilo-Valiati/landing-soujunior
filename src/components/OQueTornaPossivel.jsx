@@ -2,8 +2,8 @@ export default function OQueTornaPossivel() {
   return (
     <section className="py-20 lg:py-32 radial-glow-yellow">
       <div className="section-shell grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-        <div className="text-center lg:text-left order-2 lg:order-1">
-          <div className="relative w-full max-w-md mx-auto lg:mx-0 mb-10">
+        <div className="text-center lg:text-left">
+          <div className="relative mx-auto mb-10 w-full max-w-[456px] lg:mx-0">
             {/* Elipses desfocadas que ficam atrás da imagem, como no Figma */}
             <span
               aria-hidden="true"
@@ -22,14 +22,14 @@ export default function OQueTornaPossivel() {
           <h2 className="text-4xl md:text-5xl font-black text-primary leading-tight mb-6">
             O que a SouJunior{' '}<br className="hidden md:block"/>torna possível
           </h2>
-          <p className="text-dark/70 leading-relaxed max-w-md mx-auto lg:mx-0">
+          <p className="mx-auto max-w-md leading-relaxed text-dark/70 lg:mx-0">
             <strong className="text-dark">Aprender significa colocar a mão na massa.</strong>{' '}
             Projetos reais, mentoria e comunidade criam um espaço onde profissionais
             podem praticar, evoluir e construir experiência juntos.
           </p>
         </div>
 
-        <div className="flex flex-col gap-10 order-1 lg:order-2">
+        <div className="mt-14 flex flex-col gap-14 lg:mt-0 lg:gap-10">
           {[
             {
               titulo: 'Projetos reais',
@@ -56,13 +56,15 @@ export default function OQueTornaPossivel() {
               icone: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             }
           ].map((card) => (
-            <div key={card.titulo} className="relative flex flex-col items-center gap-4 text-center lg:block lg:pl-9 lg:text-left">
-              <div className={`w-14 h-14 lg:w-[72px] lg:h-[72px] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md ${card.fundoIcone} lg:absolute lg:left-9 lg:top-1/2 lg:z-10 lg:-translate-x-1/2 lg:-translate-y-1/2`}>
-                <svg className="w-7 h-7 lg:w-9 lg:h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">{card.icone}</svg>
-              </div>
-              <div className={`w-full min-w-0 rounded-[28px] border-2 bg-white/60 px-6 py-6 lg:py-9 lg:pl-[76px] lg:pr-10 ${card.borda}`}>
-                <h3 className="text-xl md:text-2xl font-bold mb-2">{card.titulo}</h3>
-                <p className="text-sm md:text-base text-dark/70 leading-relaxed">
+            <div key={card.titulo} className="relative lg:pl-9">
+              <div className={`relative w-full min-w-0 rounded-[28px] border-2 bg-white/60 px-6 pb-6 pt-10 text-center lg:py-9 lg:pl-[76px] lg:pr-10 lg:text-left ${card.borda}`}>
+                {/* No celular o ícone fica dentro do card (40x40). No desktop ele sobe
+                    para 72x72 e monta sobre a borda esquerda, como no Figma. */}
+                <div className={`absolute left-1/2 top-0 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl shadow-md ${card.fundoIcone} lg:left-0 lg:top-1/2 lg:h-[72px] lg:w-[72px] lg:rounded-2xl`}>
+                  <svg className="h-5 w-5 lg:h-9 lg:w-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">{card.icone}</svg>
+                </div>
+                <h3 className="mb-2 text-xl font-bold md:text-2xl">{card.titulo}</h3>
+                <p className="text-sm leading-relaxed text-dark/70 md:text-base">
                   <strong className="text-dark">{card.destaque}</strong> {card.texto}
                 </p>
               </div>

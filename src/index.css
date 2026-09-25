@@ -65,10 +65,14 @@ a {
   background-image: radial-gradient(circle at center left, rgba(250, 204, 21, 0.15) 0%, transparent 60%);
 }
 
-/* Garante que imagens nunca passem do tamanho da tela */
-img {
-  max-width: 100%;
-  height: auto;
+/* Garante que imagens nunca passem do tamanho da tela.
+   Fica em @layer base para que as classes do Tailwind possam sobrescrever
+   quando uma imagem precisar de largura própria. */
+@layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 
