@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { MOLDURA } from './moldura';
 
 const faqs = [
@@ -8,6 +9,16 @@ const faqs = [
     { q: "Onde posso acompanhar o trabalho da SouJunior?", a: "Através do nosso Discord, GitHub, LinkedIn e demais canais oficiais. Tudo o que fazemos é aberto para a comunidade." }
   ];
 export default function Faq() {
+  // Todas as respostas começam abertas; a seta recolhe cada uma.
+  const [fechadas, setFechadas] = useState([]);
+
+  const alternar = (pergunta) =>
+    setFechadas((atuais) =>
+      atuais.includes(pergunta)
+        ? atuais.filter((p) => p !== pergunta)
+        : [...atuais, pergunta],
+    );
+
   return (
     <section className="relative overflow-hidden py-20 lg:py-32">
       {/* Brilhos azuis e moldura roxa do Figma */}
@@ -35,22 +46,38 @@ export default function Faq() {
         </div>
 
         <dl>
-          {faqs.map((item) => (
-            <div key={item.q} className="flex items-start gap-6 border-b border-dark/15 py-7">
-              <div className="flex-1">
-                <dt className="text-xl font-bold leading-snug md:text-2xl">{item.q}</dt>
-                <dd className="mt-2 max-w-md text-sm leading-relaxed text-dark/70 md:text-base">{item.a}</dd>
-              </div>
-              <span
-                aria-hidden="true"
-                className="mt-2 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-roxo text-roxo"
-              >
-                <svg width="11" height="7" viewBox="0 0 12.5 7.36" fill="none">
-                  <path d="M1 1L6.25 6L11.5 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            </div>
-          ))}
+          {faqs.map((item) => {
+                const aberta = !fechadas.includes(item.q);
+                return (
+                  <div key={item.q} className="flex items-start gap-6 border-b border-dark/15 py-7">
+                    <div className="flex-1">
+                      <dt className="text-xl font-bold leading-snug md:text-2xl">{item.q}</dt>
+                      {aberta && (
+                        <dd className="mt-2 max-w-md text-sm leading-relaxed text-dark/70 md:text-base">
+                          {item.a}
+                        </dd>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => alternar(item.q)}
+                      aria-expanded={aberta}
+                      aria-label={`${aberta ? 'Recolher' : 'Abrir'} resposta: ${item.q}`}
+                      className="mt-2 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-roxo text-roxo transition hover:bg-roxo hover:text-white"
+                    >
+                      <svg
+                        width="11"
+                        height="7"
+                        viewBox="0 0 12.5 7.36"
+                        fill="none"
+                        className={`transition-transform ${aberta ? '' : '-rotate-90'}`}
+                      >
+                        <path d="M1 1L6.25 6L11.5 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                );
+              })}
         </dl>
       </div>
     </section>

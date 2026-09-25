@@ -41,8 +41,8 @@ export default function Contribuicao() {
             </div>
 
             <div className="mt-10">
-               <a href="https://apoia.se/soujunior" target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto text-center rounded-full bg-secondary px-10 py-4 text-sm font-bold text-dark transition hover:bg-secondary/90 shadow-lg">
-                  Apoiar com R$ 2, R$ 5 ou R$ 9
+               <a href="#planos-apoio" className="inline-block w-full sm:w-auto text-center rounded-full bg-secondary px-10 py-4 text-sm font-bold text-dark transition hover:bg-secondary/90 shadow-lg">
+                  Ver os planos de apoio
                </a>
             </div>
          </div>

@@ -7,6 +7,8 @@ import Ecossistema from './components/Ecossistema';
 import FaixaFrase from './components/FaixaFrase';
 import Depoimentos from './components/Depoimentos';
 import Contribuicao from './components/Contribuicao';
+import Transparencia from './components/Transparencia';
+import PlanosApoio from './components/PlanosApoio';
 import Faq from './components/Faq';
 import Rodape from './components/Rodape';
 
@@ -25,6 +27,8 @@ export default function App() {
         <FaixaFrase />
         <Depoimentos />
         <Contribuicao />
+        <Transparencia />
+        <PlanosApoio />
         <Faq />
       </main>
 

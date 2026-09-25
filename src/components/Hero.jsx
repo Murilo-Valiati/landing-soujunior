@@ -13,7 +13,7 @@ export default function Hero() {
             O júnior de hoje transforma o amanhã.
           </h1>
           <p className="mt-6 text-lg text-dark/70 font-medium">Toda carreira precisa de uma primeira oportunidade para acontecer.</p>
-          <p className="mt-4 text-dark/70">Na SouJunior, profissionais constroem a experiência em projetos reais, aprendem com mentores e se preparam para o mercado.</p>
+          <p className="mt-4 text-dark/70">Na SouJunior, profissionais desenvolvem experiência em projetos reais, aprendem com mentores e crescem ao lado de uma comunidade inteira. Com R$ 2 ou mais, você ajuda essa jornada a continuar.</p>
           <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
             <a
               href="https://apoia.se/soujunior"
