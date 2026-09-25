@@ -19,20 +19,21 @@ export default function BarraImpacto() {
   return (
     <div id="impacto" className="bg-secondary py-5 md:py-8 border-y border-dark/10 overflow-hidden px-4">
       <div className="section-shell">
-        {/* Celular: carrossel com um número por vez */}
-        <div className="flex items-center justify-center gap-4 md:hidden">
+        {/* Celular: carrossel com um número por vez. Setas na borda e altura
+            fixa no texto, para não pular quando a frase quebra em duas linhas. */}
+        <div className="flex items-center justify-between gap-3 md:hidden">
           <button
             type="button"
             onClick={anterior}
             aria-label="Ver número anterior"
-            className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
+            className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
           >
-            <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+            <svg width="7" height="12" viewBox="0 0 8 14" fill="none">
               <path d="M7 1L1 7L7 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
-          <div className="flex min-w-0 flex-1 items-center justify-center gap-2 text-center text-sm font-bold">
+          <div className="flex min-h-[40px] min-w-0 flex-1 items-center justify-center gap-2 text-center text-sm font-bold">
             <span className="text-2xl">{numeros[indice].valor}</span>
             <span>{numeros[indice].texto}</span>
           </div>
@@ -41,9 +42,9 @@ export default function BarraImpacto() {
             type="button"
             onClick={proximo}
             aria-label="Ver próximo número"
-            className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
+            className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 border-dark text-dark transition hover:bg-dark hover:text-secondary"
           >
-            <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+            <svg width="7" height="12" viewBox="0 0 8 14" fill="none">
               <path d="M1 1L7 7L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
